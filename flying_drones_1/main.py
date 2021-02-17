@@ -20,7 +20,7 @@ def main():
         s = f.readline().strip().split()
         coordinates[i+1] = [int(s) for s in s]
     return m, n, coordinates, test_num
-
+    
 
 m, n, slov, num = main()
 
