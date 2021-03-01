@@ -29,12 +29,13 @@ def next_point(coord: dict, x: int, y: int):  # Вызывает distance() и g
     """ Находит в словаре coord следующую точку для дрона.
     Возвращает ее номер, координаты и расстояние до неё """
     min_distance = 40000
-    for x_next, y_next in coord.values():
-        dist = distance(x, y, x_next, y_next)
+    for key, items in coord.items():
+        dist = distance(x, y, *items)
         if dist < min_distance:
             min_distance = dist
-            fin_cords = (x_next, y_next)
-    return get_key(coord, *fin_cords), fin_cords, min_distance
+            fin_cords = items
+            fin_point = key
+    return fin_point, fin_cords, min_distance
 
 
 def main():
@@ -43,7 +44,7 @@ def main():
     """
 
     f_in = open("drones.txt")
-    f_out = open("ansvers.txt", "w")
+    f_out = open("test_out.txt", "w")
 
     while True:
         row = f_in.readline().strip().split()
