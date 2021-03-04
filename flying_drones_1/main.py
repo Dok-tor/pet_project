@@ -1,4 +1,5 @@
 import math
+# openCL
 
 
 def get_key(diction: dict, x: int, y: int):
